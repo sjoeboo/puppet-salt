@@ -10,7 +10,7 @@ class salt::master::config {
   }
 
   #if using autosign, create autosign.conf and populate
-  if $salt::autosign_file != undef {
+  if $salt::master_autosign_file != undef {
     file { 'autosign-conf':
       ensure  => present,
       path    => $salt::autosign_file,
