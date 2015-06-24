@@ -13,7 +13,7 @@ class salt::master::config {
   if $salt::master_autosign_file != undef {
     file { 'autosign-conf':
       ensure  => present,
-      path    => $salt::autosign_file,
+      path    => $salt::master_autosign_file,
       owner   => 'root',
       group   => 'root',
       mode    => '0644',
