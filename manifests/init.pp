@@ -133,6 +133,7 @@ class salt (
   $master_job_cache                = undef,
   $master_minion_data_cache        = undef,
   $master_auto_accept              = undef,
+  $master_autosign_file            = undef,
   $master_sock_dir                 = undef,
   $master_nodegroups               = undef,
   $minion_master                   = undef,

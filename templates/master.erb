@@ -199,7 +199,11 @@ auto_accept: <%= @master_auto_accept %>
 # If the autosign_file is specified, incoming keys specified in the
 # autosign_file will be automatically accepted. This is insecure.  Regular
 # expressions as well as globing lines are supported.
+<% if @master_autosign_file -%>
+autosign_file: <%= @master_autosign_file %>
+<% else -%>
 #autosign_file: /etc/salt/autosign.conf
+<% end -%>
 
 # Works like autosign_file, but instead allows you to specify minion IDs for
 # which keys will automatically be rejected. Will override both membership in
