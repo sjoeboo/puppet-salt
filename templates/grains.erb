@@ -4,12 +4,15 @@ scope.compiler.topscope.to_hash.reject do |k,v|
   k.to_s =~ /(uptime.*|last_run|timestamp|(memory|swap)free|ssh*)/ or ! v.is_a?(String)
 end.sort.each do |fact| -%>
   <%= fact[0] -%>: 
+    <% if fact[1].is_a?(String) -%>
     - <%= fact[1].to_s %>
+    <%elsif fact[1].is_a?(Hash) -%>
+    <% fact[1].each do |subfact| -%>
+    - <%= subfact[0] -%>:
+      - <%= subfact[1] -%>
+    <% end %>
+    <% else -%>
+    - <%= fact[1] -%>
+    <% end %>
 <% end %>
 
-<%-
- scope.compiler.topscope.to_hash.reject do |k,v|
-   k.to_s =~ /(uptime.*|last_run|timestamp|(memory|swap)free|ssh*)/ or ! v.is_a?(String)
- end.sort.each do |fact| -%>
-  <%= fact.to_yaml %>
-<% end %>
