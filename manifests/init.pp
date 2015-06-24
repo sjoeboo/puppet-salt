@@ -134,6 +134,7 @@ class salt (
   $master_minion_data_cache        = undef,
   $master_auto_accept              = undef,
   $master_autosign_file            = undef,
+  $master_autosign_lines           = [],
   $master_sock_dir                 = undef,
   $master_nodegroups               = undef,
   $minion_master                   = undef,

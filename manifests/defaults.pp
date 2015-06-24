@@ -17,6 +17,7 @@ class salt::defaults {
   #
   $master_conf_template = 'salt/master.erb'
   $minion_conf_template = 'salt/minion.erb'
+  $master_autosign_template = 'salt/autosign.conf.erb'
 
   # set location of grains file
   #

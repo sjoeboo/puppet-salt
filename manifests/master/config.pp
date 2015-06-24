@@ -8,4 +8,16 @@ class salt::master::config {
     mode    => '0644',
     content => template($salt::master_conf_template),
   }
+
+  #if using autosign, create autosign.conf and populate
+  if $salt::autosign_file != undef {
+    file { 'autosign-conf':
+      ensure  => present,
+      path    => $salt::autosign_file,
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+      content => template($salt::master_autosign_template),
+    }
+  }
 }
