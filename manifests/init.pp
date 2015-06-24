@@ -137,6 +137,7 @@ class salt (
   $master_autosign_lines           = [],
   $master_sock_dir                 = undef,
   $master_nodegroups               = undef,
+  $master_timeout                  = undef,
   $minion_master                   = undef,
   $minion_master_port              = undef,
   $minion_user                     = undef,

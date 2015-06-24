@@ -119,7 +119,11 @@ keep_jobs: <%= @master_keep_jobs %>
 
 # Set the default timeout for the salt command and api, the default is 5
 # seconds
+<% if @master_timeout -%>
+timeout: <%= @master_timeout %>
+<% else -%>
 #timeout: 5
+<% end -%>
 
 # The loop_interval option controls the seconds for the master's maintinance
 # process check cycle. This process updates file server backends, cleans the
